@@ -14,7 +14,7 @@ as
 begin
 	insert into dbo.clientes ([rg], [nome], [endereco], [bairro], [cidade], [estado], [telefone], [email], [datanascimento], [sexo]) 
 	values (@rg, @nome, @endereco, @bairro, @cidade, @estado, @telefone, @email, @datanasc, @sexo)
-end;
+end
 
 exec CadastroCliente '9865673216', 'Agnaldo Inácio Peixe da Silva', 'Rua Natal, 241', 'Jd. Paulistano', 'Salto de Pirapora', 'SP', '400028922', 'agnaldo.inacio13@outlook.com', '1945-04-29', 'M';
 
@@ -47,7 +47,7 @@ begin
         DATANASCIMENTO = @datanascimento,
         Sexo = @sexo
     Where COD_CLIENTE = @cod_cliente
-end;
+end
 
 exec UpdateDadosCliente 12, '123456789', 'Carlinhos Maia', 'Rua Natal, 241', 'Jd Santa Rosália', 'São Paulo', 'SP', '11123456789', 'CarlinhosM@hotmail.com', '1981-07-21', 'M';
 
@@ -60,8 +60,8 @@ begin
     select COD_CLIENTE, nome
     from dbo.CLIENTES
     where COD_CLIENTE = @ID_cliente;
-end;
-
+end
+	
 exec SelecionarCliente '11';
 
 
@@ -72,6 +72,6 @@ as
 begin
 	delete from dbo.CLIENTES
 	where COD_CLIENTE = @ID_cliente
-end;
+end
 
 exec ExcluirCliente '11';
