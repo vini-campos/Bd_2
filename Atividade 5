@@ -1,0 +1,14 @@
+retornar:
+	id cliente
+	id filme
+		se:
+		id filme pertencer a um filme alugado, retornar que não foi possível alugar
+		senão:
+		marcar o filme como alugado
+	data retirada:
+		adicionar o datetime atual na coluna status da tabela filmes
+	data entregue
+		se:
+		data entregue > data prevista: exibir que entregou cm atraso
+	data prevista
+		datetime atual + 7 dias
