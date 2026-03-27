@@ -3,12 +3,10 @@ create procedure ClientesCidade
 	@idade int
 as
 begin
-	select nome, datanascimento, 2026 - year(datanascimento) as idade
+	select distinct nome, format(Datanascimento, 'dd/MM/yyyy') as datanascimento, 2026 - year(datanascimento) as idade
 	from clientes
 	where cidade = @cidade
-	and 2026 - year(datanascimento) = @idade;
+	and 2026 - year(datanascimento) <= @idade;
 end;
 
--- se precisar implementar mais tarde: format(Datanascimento, 'dd/MM/yyyy') as DataNascimento
-
-exec ClientesCidade 'Sorocaba', '41';
+exec ClientesCidade 'Sorocaba', '44';
