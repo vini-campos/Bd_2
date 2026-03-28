@@ -1,14 +1,16 @@
-retornar:
-	id cliente
-	id filme
-		se:
-		id filme pertencer a um filme alugado, retornar que não foi possível alugar
-		senão:
-		marcar o filme como alugado
-	data retirada:
-		adicionar o datetime atual na coluna status da tabela filmes
-	data entregue
-		se:
-		data entregue > data prevista: exibir que entregou cm atraso
-	data prevista
-		datetime atual + 7 dias
+5) Criar um Procedimento Armazenado para 
+Incluir Locação com os parâmetros:
+ID_Cliente
+ID_Filme
+Data_Locacao => Obs: Pegar a Data do Sistema
+Acrescentar na tabela de Filme a coluna Status
+tipo varchar(10) - 
+Criar também a Coluna Data_Devolucao em Locações
+* Após a inclusão da Locação, 
+marcar o filme como 'alugado'
+
+6) Criar o Procedimento Devolver_Filme
+   Parametrizar ID_Locacao.
+   O procedimento deverá alterar a tabela de locações
+   registrando a Data de Devolução a partir do sistema
+   e voltar o Status do Filme para 'Disponível'
