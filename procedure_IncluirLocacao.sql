@@ -17,15 +17,22 @@ add data_retirada datetime;
 
 alter table locacoes
 add data_devolucao datetime;
--------------------------------------
+
+alter table locacoes
+add data_devolucao_prevista datetime;
 
 create procedure IncluirLocacao
     @ID_Cliente int,
     @ID_Filme int
 as
 begin
-    insert into locacoes(cod_cliente, cod_filme, data_retirada)
-    values (@ID_Cliente, @ID_Filme, getdate());
+    update locacoes
+    set data_retirada = getdate()
+    where cod_cliente = @ID_Cliente and cod_filme = @ID_Filme and data_retirada is null;
+
+    update locacoes
+    set data_devolucao_prevista = dateadd(day, 7, getdate())
+    where cod_cliente = @ID_Cliente and cod_filme = @ID_Filme and data_devolucao_prevista is null;
 
     -- Atualiza status 
     update filmes
@@ -33,4 +40,4 @@ begin
     where cod_filme = @ID_Filme;
 end
 
-exec IncluirLocacao @ID_Cliente = 3, @ID_Filme = 5;
+exec IncluirLocacao @ID_Cliente = 3, @ID_Filme = 17;
