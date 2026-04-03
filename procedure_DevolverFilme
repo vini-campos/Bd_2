@@ -1,0 +1,7 @@
+--A ser fazido
+
+6) Criar o Procedimento Devolver_Filme
+   Parametrizar ID_Locacao.
+   O procedimento deverá alterar a tabela de locações
+   registrando a Data de Devolução a partir do sistema
+   e voltar o Status do Filme para 'Disponível'
