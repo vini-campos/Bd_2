@@ -34,6 +34,10 @@ begin
     set data_devolucao_prevista = dateadd(day, 7, getdate())
     where cod_cliente = @ID_Cliente and cod_filme = @ID_Filme and data_devolucao_prevista is null;
 
+    update locacoes
+    set data_devolucao = null
+    where @ID_Cliente = cod_cliente and @ID_Filme = cod_filme;
+
     -- Atualiza status 
     update filmes
     set status = 'alugado'
