@@ -20,4 +20,4 @@ DROP TRIGGER devolver_filme
 UPDATE dbo.filmes
 SET status = 'alugado' WHERE cod_filme = 1
 
---arrumar essa merda 
+--arrumar essa merda
