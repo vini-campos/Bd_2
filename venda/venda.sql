@@ -20,7 +20,6 @@ create table Venda(
 	quantidade int not null,
 	valor_total float not null,
 	nmr_parcela int not null unique,
-	
 );
 
 CREATE TABLE parcelas(
@@ -29,4 +28,9 @@ CREATE TABLE parcelas(
 	parcelas_pagas int not null,
 	data_parcela date not null,
 	atrasos int,
+);
+
+create table Saldo(
+	id_produto int foreign key references Produto(id) not null,
+	Saldo_produto decimal not null
 );
